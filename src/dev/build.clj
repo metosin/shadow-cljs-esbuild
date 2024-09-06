@@ -17,9 +17,10 @@
 (defn start
   {:shadow/requires-server true}
   [& _args]
-  ;; TODO: Create libs.js file if doesn't exist here instead of package.json?
-  (start-process ["yarn" "start:libs"])
+  ;; Watch call blocks until the first build is done -> the index file
+  ;; will be available when ESBuild is started
   (shadow/watch :app)
+  (start-process ["yarn" "start:libs"])
   ::started)
 
 (defn release

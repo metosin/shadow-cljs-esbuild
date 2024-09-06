@@ -5,7 +5,7 @@
     "release": "shadow-cljs -A:dev run dev.build/release && yarn styles-release",
     "styles-dev": "onchange -o '> public/main.css && lightningcss --bundle public/main.css -o public/main.css' -i src/**/*.css -- cat src/**/*.css",
     "styles-release": "cat src/**/*.css > public/main.css && lightningcss --minify --bundle public/main.css -o public/main.css",
-    "start:libs": "mkdir -p target/gen && touch target/gen/libs.js && node watch.mjs",
+    "start:libs": "node watch.mjs",
     "build:libs": "node build.mjs"
   },
   "dependencies": {
